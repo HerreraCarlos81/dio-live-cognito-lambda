@@ -5,6 +5,7 @@
 - Amazon Cognito
 - Amazon DynamoDB
 - Amazon API Gateway
+- Amazon IAM (Identity and Access Management)
 - AWS Lambda
 
 ## Etapas do desenvolvimento
@@ -26,7 +27,7 @@
 - Lambda Dashboard -> Create function -> Name [put_item_function] -> Create function
 - Inserir código da função ```put_item_function.js``` disponível na pasta ```/src``` -> Deploy
 - Configuration -> Execution role -> Abrir a Role no console do IAM
-- IAM -> Roles -> Role criada no passo anterior -> Permissions -> Add inline policy
+- IAM -> Roles -> Role criada no passo anterior -> Permissions -> Add inline policy (Criar policy DynamoDB para Write: PutItem)
 - Service - DynamoDB -> Manual actions -> add actions -> putItem
 - Resources -> Add arn -> Selecionar o arn da tabela criada no DynamoDB -> Add
 - Review policy -> Name [lambda_dynamodb_putItem_policy] -> Create policy
@@ -78,6 +79,7 @@
 
 - Add request -> Authorization
 - Type - OAuth 2.0
+- Grant Type: Implicit
 - Callback URL [https://example.com/logout]
 - Auth URL [https://diolive.auth.sa-east-1.amazoncognito.com/login]
 - Client ID - obter o Client ID do Cognito em App clients
